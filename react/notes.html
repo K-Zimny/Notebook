@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <h1>React Notes</h1>
+        <h2>Array State Management</h2>
+        <p>When working with state where an array contains subarrays you need to map over each array at a time to access its parts.</p>
+        <h3>Example</h3>
+        <code>
+                const INITIAL_GAME_STATE = [
+                [0, 0],
+                [0, 0],
+                [0, 0],
+                [0, 0],
+                ];
+                //
+                INITIAL_GAME_STATE = [[0,0],[0,0],[0,0],[0,0]]
+        </code>
+        <code>
+                setGameState((prevState) => {
+                const newState = prevState.map((row, rowIndex) =>
+                rowIndex == r
+                ? row.map((cell, cellIndex) => (cellIndex == c ? (cell = 1) : cell))
+                : row
+                );
+                return newState;
+                });
+        </code>
+        <p>Data is stored in an array and that data is an array itself. Map over the first array to find the array you need to access. When you have the array you need to work with you then map over that array to work with its data.</p>
+</body>
+</html>
